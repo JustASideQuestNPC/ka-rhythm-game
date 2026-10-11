@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "@types/p5": "^1.7.7",
+    "p5": "^2.2.3",
+    "ts-loader": "^9.5.7",
+    "webpack": "^5.105.4",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-server": "^5.2.3"
+  },
+  "dependencies": {
+    "typescript": "^6.0.2"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compile for KA",
+			"type": "shell",
+			"command": "C:\\Users\\hey-t\\AppData\\Local\\Microsoft\\WindowsApps\\python3.13.exe .\\ka_compile.py",
+			"windows": {
+				"command": "C:\\Users\\hey-t\\AppData\\Local\\Microsoft\\WindowsApps\\python3.13.exe .\\ka_compile.py"
+			},
+			"group": "test",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			}
+		},
+		{
+			"label": "Build and fix Typescript",
+			"type": "shell",
+			"command": "C:\\Users\\hey-t\\AppData\\Local\\Microsoft\\WindowsApps\\python3.13.exe .\\typescript_build.py",
+			"windows": {
+				"command": "C:\\Users\\hey-t\\AppData\\Local\\Microsoft\\WindowsApps\\python3.13.exe .\\typescript_build.py"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "tsconfig.json",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"label": "tsc: build - tsconfig.json"
+		}
+	]
+}

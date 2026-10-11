@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "strictNullChecks": false,
+        "skipLibCheck": true,
+        "rootDir": "./",
+        "outDir": "./js_build",
+        // "moduleResolution": "node16",
+        // "module": "node16"
+        // "module": "commonjs"
+        "types": ["p5/global"]
+    },
+    "include": ["./global.d.ts", "./src"]
+}
