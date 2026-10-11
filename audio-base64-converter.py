@@ -10,6 +10,7 @@ SONG_NAME = 'flavor-foley-weiward-romance'
 
 with open(FILE_PATH) as file_reader:
     contents = (
+        f'console.log("loading base64 audio for song {SONG_NAME}"); '
          'if (typeof audioStrings === "undefined") { var audioStrings = {}; '
          'console.log("creating audioString object"); }\n'
          'if (typeof audioStrings["{SONG_NAME}"] === "undefined") ''{ '
