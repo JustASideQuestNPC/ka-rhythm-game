@@ -1,5 +1,10 @@
 import p5 from "p5";
 
+// collect and delete existing animation frames
+for(let i = window.requestAnimationFrame(() => {}); i > 0; i--) {
+    window.cancelAnimationFrame(i);
+}
+
 // creates and runs the actual sketch object
 const sketch = (p5: p5) => {
     p5.setup = () => {

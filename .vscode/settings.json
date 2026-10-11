@@ -2,5 +2,6 @@
     "files.exclude": {
         // "js_build": true
     },
+    "python.defaultInterpreterPath": ".venv/Scripts/python.exe",
     "liveServer.settings.port": 5501
 }

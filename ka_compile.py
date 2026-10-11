@@ -8,6 +8,7 @@ OUTFILE_PATH = 'ka_build.html'
 JS_FOLDER = './js_build/src'
 # files in load order
 LOAD_ORDER = [
+    'audio/audio-player',
     'main'
 ]
 
@@ -31,6 +32,330 @@ Comments go here.
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- song loading -->
+    <script>
+      var AUDIO_STRINGS = {};
+      var THUMBNAIL_STRINGS = {};
+      var CHART_STRINGS = [];
+    </script>
+    <!--
+      Chart import format because I'll definitely forget (and I also think it's cool).
+
+      To load the files, add these 3 script tags:
+      <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/[song name]/audio.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/[song name]/thumbnail.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/[song name]/chart.js"></script>
+
+      The song name is formatted as "[artist name][song name]" with no punctuation and in camel
+      case. If the artist name includes "ft. x", don't include that part; if the artist is
+      "[name 1] & [name 2]", use "[name 1][name 2]". For example, the song name for Eastside (by
+      Good Kid) is "goodKidEastside".
+
+      After the file loading script tags, add this script tag to add them to the lookup tables:
+      <script type>
+        AUDIO_STRINGS["[song name]"] = [song name]_audio;
+        THUMBNAIL_STRINGS["[song name]"] = [song name]_thumbnail;
+        CHART_STRINGS.push([song name]_chart);
+      </script>
+
+      NOTE: For 炜WARD ROMANCE, the song name uses the romanization of the Chinese character, so the
+      song name is "flavorFoleyWeiwardRomance".
+    -->
+
+    <!--
+      Div tag here so I can collapse all of these. If a song is commented out, it means that it's in
+      my "maybe I should add this" playlist but hasn't been charted yet (this *does not* mean it's
+      guaranteed to be charted eventually).
+
+      GUARDIANS: All the copyright-related info is included here. I think all of these songs are
+      safe, but contact me if you disagree and we'll work something out. Songs are listed in order
+      of how sure I am that they're OK. Keep in mind that:
+      - This is about as non-commercial as you can possibly get.
+      - The only way to get the music data would be to go OFF of Khan Academy and download the files
+        from my personal Github (so I'd say it's my problem if copyright becomes an issue).
+    -->
+    <div>
+      <!--
+        Mortals, Firefly, Invincible, and Savannah were released under NoCopyrightSounds.
+      -->
+      <div>
+        <!-- Warriyo ft. Laura Brehm - Mortals -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/warriyoMortals/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/warriyoMortals/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/warriyoMortals/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["warriyoMortals"] = warriyoMortals_audio;
+          THUMBNAIL_STRINGS["warriyoMortals"] = warriyoMortals_thumbnail;
+          CHART_STRINGS.push(warriyoMortals_chart);
+        </script> -->
+
+        <!-- Jim Yosef - Firefly -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/jimYosefFirefly/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/jimYosefFirefly/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/jimYosefFirefly/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["jimYosefFirefly"] = jimYosefFirefly_audio;
+          THUMBNAIL_STRINGS["jimYosefFirefly"] = jimYosefFirefly_thumbnail;
+          CHART_STRINGS.push(jimYosefFirefly_chart);
+        </script> -->
+
+        <!-- DEAF KEV - Invincible -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/deafKevInvincible/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/deafKevInvincible/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/deafKevInvincible/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["deafKevInvincible"] = deafKevInvincible_audio;
+          THUMBNAIL_STRINGS["deafKevInvincible"] = deafKevInvincible_thumbnail;
+          CHART_STRINGS.push(deafKevInvincible_chart);
+        </script> -->
+
+        <!-- Diviners ft. Philly K - Savannah -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/divinersSavannah/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/divinersSavannah/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/divinersSavannah/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["divinersSavannah"] = divinersSavannah_audio;
+          THUMBNAIL_STRINGS["divinersSavannah"] = divinersSavannah_thumbnail;
+          CHART_STRINGS.push(divinersSavannah_chart);
+        </script> -->
+      </div>
+
+      <!--
+        From ROMA's YouTube channel description:
+        ALL MY MUSIC IS 100% COPYRIGHT FREEEEEE DO WHATEVER YOU WANT, MAKE MONEY OFF OF IT GO BALLS 
+        just dont claim my work as yours please c: 
+        Lalala
+      -->
+      <div>
+        <!-- ROMA - NEURODIVERGENCE -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/romaNeurodivergence/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/romaNeurodivergence/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/romaNeurodivergence/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["romaNeurodivergence"] = romaNeurodivergence_audio;
+          THUMBNAIL_STRINGS["romaNeurodivergence"] = romaNeurodivergence_thumbnail;
+          CHART_STRINGS.push(romaNeurodivergence_chart);
+        </script> -->
+
+        <!-- ROMA ft. Kasane Teto - DANCIN VIBES -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/romaDancinVibes/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/romaDancinVibes/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/romaDancinVibes/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["romaDancinVibes"] = romaDancinVibes_audio;
+          THUMBNAIL_STRINGS["romaDancinVibes"] = romaDancinVibes_thumbnail;
+          CHART_STRINGS.push(romaDancinVibes_chart);
+        </script> -->
+      </div>
+
+      <!--
+        Good Kid is Good Kid, they let anyone do anything (non-commercial) with their music as long
+        as they're credited.
+      -->
+      <div>
+        <!-- Good Kid - Coffee -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidCoffee/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidCoffee/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidCoffee/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["goodKidCoffee"] = goodKidCoffee_audio;
+          THUMBNAIL_STRINGS["goodKidCoffee"] = goodKidCoffee_thumbnail;
+          CHART_STRINGS.push(goodKidCoffee_chart);
+        </script> -->
+
+        <!-- Good Kid - Eastside -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidEastside/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidEastside/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidEastside/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["goodKidEastside"] = goodKidEastside_audio;
+          THUMBNAIL_STRINGS["goodKidEastside"] = goodKidEastside_thumbnail;
+          CHART_STRINGS.push(goodKidEastside_chart);
+        </script> -->
+
+        <!-- Good Kid - Tornado -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidTornado/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidTornado/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidTornado/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["goodKidTornado"] = goodKidTornado_audio;
+          THUMBNAIL_STRINGS["goodKidTornado"] = goodKidTornado_thumbnail;
+          CHART_STRINGS.push(goodKidTornado_chart);
+        </script> -->
+
+        <!-- Good Kid - From the Start -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidFromTheStart/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidFromTheStart/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/goodKidFromTheStart/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["goodKidFromTheStart"] = goodKidFromTheStart_audio;
+          THUMBNAIL_STRINGS["goodKidFromTheStart"] = goodKidTFromTheStartthumbnail;
+          CHART_STRINGS.push(goodKidFromTheStart_chart);
+        </script> -->
+
+        <!-- Good Kid - NoTimeToExplain -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/noTimeToExplain/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/noTimeToExplain/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/noTimeToExplain/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["noTimeToExplain"] = noTimeToExplain_audio;
+          THUMBNAIL_STRINGS["noTimeToExplain"] = noTimeToExplain_thumbnail;
+          CHART_STRINGS.push(noTimeToExplain_chart);
+        </script> -->
+      </div>
+
+      <!--
+        Quote from Meganeko: "For non-commercial, fan-made custom levels in games, it's okay to use
+        my independent solo releases, with proper credit."
+
+        I guess this technically isn't "fan-made" because I'm the one making the game, but I still
+        think it's reasonable because I'm not using their music to do any marketing or things like
+        that.
+      -->
+      <div>
+        <!-- Meganeko - nano love -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/meganekoNanoLove/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/meganekoNanoLove/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/meganekoNanoLove/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["meganekoNanoLove"] = meganekoNanoLove_audio;
+          THUMBNAIL_STRINGS["meganekoNanoLove"] = meganekoNanoLove_thumbnail;
+          CHART_STRINGS.push(meganekoNanoLove_chart);
+        </script> -->
+      </div>
+
+      <!--
+        FLAVOR FOLEY, Isidore., MonochroMenace, rai1367, Hobisu, Alohaii, and Yowane haven't made
+        blanket statements about rhythm games, but are all on the custom chart whitelist for
+        UNBEATABLE (another rhythm game). This means that they've given permission for their music
+        to be used in charts for a commercial release, so I think it's also reasonable to assume
+        they'd be fine with using it here (also, most of them have said that any non-commercial use
+        is fine, not just for UNBEATABLE charts).
+
+        Extra notes:
+        - If Hobisu and Yowane still aren't on the whitelist, it's because the whitelist hasn't been
+          updated in who knows how many months at this point. I'm the one who contacted them and I'm
+          more than willing to show you their responses.
+        - The features on Alohaii's music (vally.exe, Nia Suzune, and girl_dm_) technically aren't
+          whitelisted, but Alohaii stated that they are the only one who owns the rights to the
+          music.
+        - All other features are vocaloids and the whitelist obviously doesn't apply to them.
+        - For what it's worth, UNBEATABLE charts (some made by me, some made by other people) using
+          all of these songs have been released and none were taken down (and the UNBEATABLE team is
+          *very* strict about the whitelist).
+      -->
+      <div>
+        <!-- FLAVOR FOLEY ft. Feng Yi - 炜WARD ROMANCE -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyWeiwardRomance/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyWeiwardRomance/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyWeiwardRomance/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["flavorFoleyWeiwardRomance"] = flavorFoleyWeiwardRomance_audio;
+          THUMBNAIL_STRINGS["flavorFoleyWeiwardRomance"] = flavorFoleyWeiwardRomance_thumbnail;
+          CHART_STRINGS.push(flavorFoleyWeiwardRomance_chart);
+        </script> -->
+
+        <!-- FLAVOR FOLEY ft. Chis-A - Clover -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyClover/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyClover/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyClover/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["flavorFoleyClover"] = flavorFoleyAClover_audio;
+          THUMBNAIL_STRINGS["flavorFoleyClover"] = flavorFoleyAClover_thumbnail;
+          CHART_STRINGS.push(flavorFoleyAClover_chart);
+        </script> -->
+
+        <!-- FLAVOR FOLEY ft. SF-A2 Miki - Human -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyA2MikiHuman/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyA2MikiHuman/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyA2MikiHuman/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["flavorFoleyA2MikiHuman"] = flavorFoleyA2MikiHuman_audio;
+          THUMBNAIL_STRINGS["flavorFoleyA2MikiHuman"] = flavorFoleyA2MikiHuman_thumbnail;
+          CHART_STRINGS.push(flavorFoleyA2MikiHuman_chart);
+        </script> -->
+
+        <!-- FLAVOR FOLEY ft. Eleanor Forte - weathergirl -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyWeathergirl/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyWeathergirl/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/flavorFoleyWeathergirl/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["flavorFoleyWeathergirl"] = flavorFoleyWeathergirl_audio;
+          THUMBNAIL_STRINGS["flavorFoleyWeathergirl"] = flavorFoleyWeathergirl_thumbnail;
+          CHART_STRINGS.push(flavorFoleyWeathergirl_chart);
+        </script> -->
+
+        <!-- Isidore. & Monochro Menace ft. Megurine Luka - FEEDBACK -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/isidoreMonochroMenaceFeedback/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/isidoreMonochroMenaceFeedback/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/isidoreMonochroMenaceFeedback/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["isidoreMonochroMenaceFeedback"] = isidoreMonochroMenaceFeedback_audio;
+          THUMBNAIL_STRINGS["isidoreMonochroMenaceFeedback"] = isidoreMonochroMenaceFeedback_thumbnail;
+          CHART_STRINGS.push(isidoreMonochroMenaceFeedback_chart);
+        </script> -->
+
+        <!-- rai1367 - Rockabye -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/rai1367Rockabye/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/rai1367Rockabye/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/rai1367Rockabye/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["rai1367Rockabye"] = rai1367Rockabye_audio;
+          THUMBNAIL_STRINGS["rai1367Rockabye"] = rai1367Rockabye_thumbnail;
+          CHART_STRINGS.push(rai1367Rockabye_chart);
+        </script> -->
+
+        <!-- Hobisu ft. Kasane Teto - I'm No Scientist -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/hobisuImNoScientist/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/hobisuImNoScientist/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/hobisuImNoScientist/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["hobisuImNoScientist"] = hobisuImNoScientist_audio;
+          THUMBNAIL_STRINGS["hobisuImNoScientist"] = hobisuImNoScientist_thumbnail;
+          CHART_STRINGS.push(hobisuImNoScientist_chart);
+        </script> -->
+
+        <!-- Alohaii ft. vally.exe - Luxury -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiLuxury/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiLuxury/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiLuxury/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["alohaiiLuxury"] = alohaiiLuxury_audio;
+          THUMBNAIL_STRINGS["alohaiiLuxury"] = alohaiiLuxury_thumbnail;
+          CHART_STRINGS.push(alohaiiLuxury_chart);
+        </script> -->
+
+        <!-- Alohaii ft. Nia Suzune - Magazines -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiMagazines/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiMagazines/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiMagazines/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["alohaiiMagazines"] = alohaiiMagazines_audio;
+          THUMBNAIL_STRINGS["alohaiiMagazines"] = alohaiiMagazines_thumbnail;
+          CHART_STRINGS.push(alohaiiMagazines_chart);
+        </script> -->
+
+        <!-- Alohaii ft. girl_dm_ - Souvenir -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiSouvenir/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiSouvenir/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/alohaiiSouvenir/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["alohaiiSouvenir"] = alohaiiSouvenir_audio;
+          THUMBNAIL_STRINGS["alohaiiSouvenir"] = alohaiiSouvenir_thumbnail;
+          CHART_STRINGS.push(alohaiiSouvenir_chart);
+        </script> -->
+
+        <!-- Yowane ft. Kasane Teto - Blue Shift -->
+        <!-- <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/yowaneBlueShift/audio.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/yowaneBlueShift/thumbnail.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/JustASideQuestNPC/ka-rhythm-game@main/yowaneBlueShift/chart.js"></script>
+        <script type>
+          AUDIO_STRINGS["yowaneBlueShift"] = yowaneBlueShift_audio;
+          THUMBNAIL_STRINGS["yowaneBlueShift"] = yowaneBlueShift_thumbnail;
+          CHART_STRINGS.push(yowaneBlueShift_chart);
+        </script> -->
+      </div>
+    </div>
 <!-- main project code -->
 <script type>(()=>{
 '''
